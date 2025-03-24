@@ -28,5 +28,15 @@ stage('Docker Image Creation') {
            sh 'docker build -t augustine325/insureme:latest .'
             }
           }
+stage('Login to Dockerhub') {
+      steps {
+              withCredentials([string(credentialsId: 'dockerpass', variable: 'dockervar')]){
+           sh 'docker login -u augustine325 -p ${dockervar}'
+                         }
+                   }
+               }
+ stage('Push the Docker image') {
+      steps {
+        sh 'docker push augustine325/insureme:latest'
 }
 }
