@@ -38,5 +38,7 @@ stage('Login to Dockerhub') {
  stage('Push the Docker image') {
       steps {
         sh 'docker push augustine325/insureme:latest'
-}
+          }
+        }  
+  }
 }
